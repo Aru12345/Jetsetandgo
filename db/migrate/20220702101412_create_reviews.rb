@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.string :image
       t.datetime :date
       t.string :destination
-      t.string :class
+      t.string :seat
       t.text :description
       t.integer :likes
       t.integer :dislikes

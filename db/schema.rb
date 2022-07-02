@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_07_02_101412) do
     t.string "image"
     t.datetime "date"
     t.string "destination"
-    t.string "class"
+    t.string "seat"
     t.text "description"
     t.integer "likes"
     t.integer "dislikes"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2022_07_02_101412) do
     t.string "name"
     t.string "email"
     t.boolean "admin"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
