@@ -11,9 +11,9 @@
 
 
 #Airline 
-singapore_airlines=Airline.create(name: 'Singapore Airlines',image: 'https://martinroll.com/wp-content/uploads/Singapore-Airlines-%E2%80%93-An-Excellent-Iconic-Asian-Brand-Martin-Roll.jpg',slogan: '"A Great Way To Fly",wlink: "https://www.singaporeair.com/en_UK/in/home#/book/bookflight"')
-emirates=Airline.create(name: 'Emirates',image: "https://content.presspage.com/uploads/2431/1920_An-Emirates-A380-434215.jpg?10000",slogan: "Fly Emirates,Fly Better",wlink: "https://www.emirates.com/in/english/book/?gclid=CjwKCAjwk_WVBhBZEiwAUHQCmaO7OAzD8IrAmhvKoSsXWgmWdyOJncne99tzTDsrrd5WH3wr5W0WnhoC_NQQAvD_BwE&gclsrc=aw.ds")
-kenya_airways=Airline.create(name:'Kenya Airways',image:"https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2022/02/K63391.jpg",slogan:"The pride of Africa",wlink: "https://www.kenya-airways.com/in/")
+singapore_airlines=Airline.create(name: 'Singapore Airlines',image: 'https://martinroll.com/wp-content/uploads/Singapore-Airlines-%E2%80%93-An-Excellent-Iconic-Asian-Brand-Martin-Roll.jpg',slogan: "A Great Way To Fly", wlink: "https://www.singaporeair.com/en_UK/in/home#/book/bookflight")
+emirates=Airline.create(name: "Emirates",image: "https://content.presspage.com/uploads/2431/1920_An-Emirates-A380-434215.jpg?10000",slogan: "Fly Emirates,Fly Better",wlink: "https://www.emirates.com/in/english/book/?gclid=CjwKCAjwk_WVBhBZEiwAUHQCmaO7OAzD8IrAmhvKoSsXWgmWdyOJncne99tzTDsrrd5WH3wr5W0WnhoC_NQQAvD_BwE&gclsrc=aw.ds")
+kenya_airways=Airline.create(name:"Kenya Airways",image:"https://static1.simpleflyingimages.com/wordpress/wp-content/uploads/2022/02/K63391.jpg",slogan:"The pride of Africa",wlink: "https://www.kenya-airways.com/in/")
 swiss_air=Airline.create(name:"Swiss Air",image:"https://s28477.pcdn.co/wp-content/uploads/2017/07/Swiss_A320_1-984x554.jpg",slogan:"Being SWISS means going the extra mile – always",wlink:"https://www.swiss.com/in/en/homepage")
 ethiad_airways=Airline.create(name:"Ethiad Airways",image:"https://landor-prod.imgix.net/app/uploads/2015/08/27135714/Etihad-1.jpg?w=1160&h=653&f=crop&auto=format&dpr=2.625",slogan:"From Abu Dhabi to the world",wlink:"https://www.etihad.com/en-in/")
 

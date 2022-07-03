@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.datetime :date
       t.string :destination
       t.string :seat
-      t.text :description
+      t.string :description
       t.integer :likes
       t.integer :dislikes
       t.belongs_to :user, null: false, foreign_key: true

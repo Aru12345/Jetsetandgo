@@ -1,8 +1,9 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  #resources :reviews
-  #resources :airlines
- # resources :users
+
+  resources :reviews,only: [:index,:create,:update,:destroy]
+  resources :airlines,only: [:index]
+  resources :users,only: [:create]
   # route to test your configuration
   get '/hello', to: 'application#hello_world'
 
