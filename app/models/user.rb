@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
     has_many :reviews
     has_many :airlines,through: :reviews 
-
+    has_secure_password
 
     validates :name,presence: true,uniqueness: true
     validates :email, uniqueness: true

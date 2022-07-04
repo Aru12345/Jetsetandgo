@@ -2,8 +2,9 @@ class UsersController < ApplicationController
 
     def index
         user=User.all
-        render json: user,include: ['airlines','airlines.reviews']
+        render json: user,status: :ok
 #include: ['users','users.reviews']
+#user,include: ['airlines','airlines.reviews']
 
     end
     def create
