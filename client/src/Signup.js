@@ -1,5 +1,6 @@
 import React,{ useState } from "react";
 import { baseUrl } from "./Global";
+import { headers } from "./Global";
 function Signup(){
 
     const [email,setEmail] = useState('');
@@ -24,7 +25,7 @@ function Signup(){
     return (
         <>
         <h1>Create Account </h1>
-        <form onSubmit={}>
+        <form >
             <div>
                 <label for="email">Email:</label>
                 <input type="text" name="email" id="email" value={email} onChange={e=> setEmail(e.target.value)} />
