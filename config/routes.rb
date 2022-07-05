@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :reviews,only: [:index,:show,:create,:update,:destroy]
   resources :airlines,only: [:index]
   resources :users,only: [:index,:create]
+
+  post '/login',to: 'session#login'
+
   # route to test your configuration
   get '/hello', to: 'application#hello_world'
 
