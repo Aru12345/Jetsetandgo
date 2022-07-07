@@ -1,29 +1,59 @@
 // client/src/components/App.js
-import React from "react";
-import Home from "./Home";
-import LogIn from "./Login";
-import Signup from "./Signup";
-import Navbar from "./Navbar";
-import { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
+import Navbar from "./components/Navigation.js/Navbar";
+import Home from "./components/Home";
 
-import { Route,Switch } from 'react-router-dom';
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import LogIn from "./components/Authentication/Login";
+import Signup from "./components/Authentication/Signup";
+
+import LoggedOut from "./components/Authentication/LoggedOut";
+import LoggedIn from "./components/Authentication/LoggedIn";
 function App() {
- 
+  const[currentUser,setCurrentUser]=useState({})
+  const [authenticated, setAuthenticated] = useState(false);
+  console.log(currentUser);
+  useEffect(() => {
+    fetch("/me", {
+      credentials: "include",
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setCurrentUser(user);
+          setAuthenticated(true);
+        });
+      } else {
+        setAuthenticated(true);
+      }
+    });
+  }, []);
 
+  if (!authenticated) {
+    return <div></div>;
+  }
   return (
     <>
-    <Navbar />
-    <Switch>
-          
-          <Route path="/signup" ><Signup/></Route>
-          <Route path="/login" element={<LogIn />}><LogIn /></Route>
-          <Route path="/" element={<Home />}><Home /></Route>
-      
-    </Switch>
+ 
+     <Navbar />
+     {currentUser ? (
+          <LoggedIn
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+          />
+        ) : (
+          <LoggedOut setCurrentUser={setCurrentUser} />
+        )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<Signup  />} />
+      </Routes>
+
+
   
-   
-    </>
+ </>
   );
+  
 }
 
 export default App;
