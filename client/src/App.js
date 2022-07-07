@@ -31,10 +31,21 @@ function App() {
   if (!authenticated) {
     return <div></div>;
   }
+
+  const handleLogout = () => {
+    fetch('/logout', {method: "DELETE"})
+    .then(res => {
+          if (res.ok) {
+            setCurrentUser(({}));
+            setAuthenticated(false);
+          }
+        })
+  }
+  
   return (
     <>
  
-     <Navbar />
+     <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogout={handleLogout}/>
      {currentUser ? (
           <LoggedIn
             setCurrentUser={setCurrentUser}
