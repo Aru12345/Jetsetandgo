@@ -15,10 +15,12 @@ function Signup({loginUser}){
           [e.target.name]: e.target.value,
         });
       };
-      const userCreds = { ...formData };
+      
 
       const handleSubmit =e => {
         e.preventDefault();
+        const userCreds = { ...formData };
+        
         fetch('/users',{
           method:"POST",
           headers,
@@ -54,7 +56,11 @@ function Signup({loginUser}){
             </div>
 
             <input type="submit" value="Create Account" />
-        </form>
+        </form> 
+        <Link to="/" replace>
+        Already have an Account?Log in
+      </Link>
+
     
         </>
     )

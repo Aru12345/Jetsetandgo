@@ -1,11 +1,11 @@
 // client/src/components/App.js
-import React, { useState,useEffect } from "react";
-import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import  { useState,useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import LoggedOut from "./components/Authentication/LoggedOut";
 import LoggedIn from "./components/Authentication/LoggedIn";
 function App() {
-  const[currentUser,setCurrentUser]=useState({})
+  const[currentUser,setCurrentUser]=useState(null)
   const [authenticated, setAuthenticated] = useState(false);
   
   
@@ -33,7 +33,7 @@ function App() {
   return (
     <>
     
-    <h1>Welcome to JetSetGo.com!</h1>
+    <h1> JetSetGo.com</h1>
     <Router>
     {currentUser ? (
           <LoggedIn
@@ -41,7 +41,7 @@ function App() {
             currentUser={currentUser}
           />
         ) : (
-          <LoggedOut setCurrentUser={setCurrentUser} />
+          <LoggedOut path="/loggedin" setCurrentUser={setCurrentUser} />
         )}
     </Router>
 

@@ -6,7 +6,7 @@ const LoggedIn = ({ currentUser, setCurrentUser }) => {
   return (
     <div>
    
-      <h1>Welcome, {currentUser.username}</h1>
+      <h1>Welcome, {currentUser.name}</h1>
       <Navbar setCurrentUser={setCurrentUser}/>
       
       <Routing />

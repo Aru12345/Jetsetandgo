@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :airlines,only: [:index]
   resources :users,only: [:index,:create,:destroy]
 
- post '/login',to: 'session#create'
- get '/me', to: 'users#show'
- delete '/logout', to: 'sessions#destroy'
- get '/signup', to: "users#create"
+  get '/signup', to: "users#create"
+  get '/me', to: "users#show"
+  post '/login', to: "sessions#login"
+  delete '/logout', to: "sessions#logout"
 
   # route to test your configuration
 

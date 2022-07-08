@@ -1,7 +1,9 @@
 import { useEffect } from "react";
-import { Navigate, Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route,Link } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
+import { useHistory } from 'react-router-dom';
+
 const LoggedOut = ({setCurrentUser}) => {
 
   useEffect(() => {
