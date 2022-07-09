@@ -1,26 +1,34 @@
 import React from "react";
-import { NavLink ,Navigate} from "react-router-dom";
-function Navbar({setCurrentUser}){
+import { Link ,NavLink} from "react-router-dom";
 
-    const handleLogout = () => {
-        fetch("/logout", {
-          method: 'DELETE'
-        })
-        console.log('logged out')
-        setCurrentUser(null)
+function Navbar({ user, setUser }) {
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
       }
-    
-   
-    return(
-        <>
-        <h1>Navbar</h1>
-        <ul>
-            <li><NavLink to="/home">Home</NavLink></li>
-            <li><NavLink to="/airlines">Airlines</NavLink></li>
-            <li><NavLink to="/myprofile">MyProfile</NavLink></li>
-            <button onClick={handleLogout}>Logout</button>
-        </ul>
-        </>
-    )
+    });
+  }
+
+  return (
+   <>
+     <h1>Navbar</h1>
+       
+         
+            <button as={Link} to="/">
+         Home
+        </button>
+            <button as={Link} to="/airlines">
+          Airlines
+        </button>
+            <button as={Link} to="/myprofile">
+         My Profile
+        </button>
+            <button onClick={handleLogoutClick}>Logout</button>
+        
+      
+    </>
+  );
 }
+
 export default Navbar;
