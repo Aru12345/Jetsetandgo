@@ -6,7 +6,11 @@ import Airlines from "./components/Airlines";
 import MyProfile from "./components/MyProfile";
 import Home from "./components/Home";
 import Navbar from "./components/Navigation.js/Navbar";
-import Login from "./components/Authentication/Login";
+import LoginForm from "./components/Authentication/LoginForm";
+import Login from "./pages/Login";
+import SignUp from "./components/Authentication/SignupForm";
+
+
 
 function App() {
   const [user, setUser] = useState(null);
