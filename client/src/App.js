@@ -1,52 +1,45 @@
 // client/src/components/App.js
-import  { useState,useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Routes ,Route } from 'react-router-dom';
 
-import LoggedOut from "./components/Authentication/LoggedOut";
-import LoggedIn from "./components/Authentication/LoggedIn";
+import Airlines from "./components/Airlines";
+import MyProfile from "./components/MyProfile";
+import Home from "./components/Home";
+import Navbar from "./components/Navigation.js/Navbar";
+import Login from "./components/Authentication/Login";
+
 function App() {
-  const[currentUser,setCurrentUser]=useState(null)
-  const [authenticated, setAuthenticated] = useState(false);
-  
-  
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
-    fetch("/me", {
-      credentials: "include",
-    }).then((res) => {
-      if (res.ok) {
-        res.json().then((user) => {
-          setCurrentUser(user);
-          setAuthenticated(true);
-         
-        });
-      } else {
-        setAuthenticated(true);
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
       }
     });
   }, []);
 
-  if (!authenticated) {
-    return <div></div>;
-  }
+  if (!user) return <Login onLogin={setUser} />;
 
-  
   return (
     <>
-    
-    <h1> JetSetGo.com</h1>
-    <Router>
-    {currentUser ? (
-          <LoggedIn
-            setCurrentUser={setCurrentUser}
-            currentUser={currentUser}
-          />
-        ) : (
-          <LoggedOut path="/loggedin" setCurrentUser={setCurrentUser} />
-        )}
-    </Router>
+       <Navbar user={user} setUser={setUser} />
+       <main>
+        <Routes>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="/airlines">
+            <Airlines />
+          </Route>
+          <Route path="/myprofile">
+            <MyProfile />
+          </Route>
+        </Routes>
+      </main>
 
-  
- </>
+  </>
   );
   
 }

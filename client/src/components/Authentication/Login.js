@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const LoginForm = ({setCurrentUser}) => {
+const Login = ({setCurrentUser}) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -74,4 +74,4 @@ const LoginForm = ({setCurrentUser}) => {
   );
 };
 
-export default LoginForm;
+export default Login;

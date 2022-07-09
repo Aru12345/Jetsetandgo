@@ -1,7 +1,8 @@
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::API
     include ActionController::Cookies
-    #before_Action :authorized_user
+
+    before_action :authenticate_user
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
    
@@ -20,6 +21,9 @@ class ApplicationController < ActionController::API
     end
 
     private
+    def authenticate_user
+      render json: {error:"Not authorized"},status: :unauthorized unless current_user
+    end
     def render_not_found
       render json: {error: "Review not found"},status: :not_found
 

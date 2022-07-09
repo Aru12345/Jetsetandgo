@@ -17,7 +17,7 @@ function Signup({loginUser}){
       };
       
 
-      const handleSubmit =e => {
+      const handleSubmit =(e) => {
         e.preventDefault();
         const userCreds = { ...formData };
         
@@ -42,20 +42,17 @@ function Signup({loginUser}){
         <>
         <h1>Create Account </h1>
         <form  onSubmit={handleSubmit}>
-            <div>
+       
                 <label htmlFor="name">Name:</label>
                 <input type="text" name="name" id="name" value={formData.name} onChange={handleChange}  />
-            </div>
-            <div>
+            
                 <label htmlFor="email">Email:</label>
                 <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} />
-            </div>
-            <div>
+           
                 <label htmlFor="password">Password:</label>
                 <input type="password" name="password" id="password" value={formData.password} onChange={handleChange} />
-            </div>
-
-            <input type="submit" value="Create Account" />
+           
+            <button type="submit">Submit</button>
         </form> 
         <Link to="/" replace>
         Already have an Account?Log in
