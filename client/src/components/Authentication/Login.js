@@ -1,77 +1,65 @@
 
+
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
-const Login = ({setCurrentUser}) => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  
+function LoginForm({ onLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   function handleSubmit(e) {
     e.preventDefault();
-
-    const userCreds = { ...formData };
-
+    setIsLoading(true);
     fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userCreds),
-    })
-      .then((r) => r.json())
-      .then((user) => {
-        console.log(user);
-        setCurrentUser(user)
-        setFormData({
-          email: "",
-          password: "",
-        });
-      });
+      body: JSON.stringify({ email, password }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
   }
 
   return (
-    <>
-      <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="Email">Email: </label>
+   <>
+   <h1>JetSetGo.com</h1>
+    <form onSubmit={handleSubmit}>
+  
+        <label htmlFor="email">Email</label>
         <input
-         
           type="text"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
+          id="email"
+          
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <br />
-        <br />
-        <label htmlFor="password">Password: </label>
+     
+        <label htmlFor="password">Password</label>
         <input
-         
           type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
+          id="password"
+          
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <br />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-      <br />
-      <br />
-
-      <Link to="/signup" replace>
-        Don't have an account? Sign Up!
-      </Link>
+      
+        <button  type="submit">
+          {isLoading ? "Loading..." : "Login"}
+        </button>
+      
+       
+      
+    </form>
     </>
   );
-};
+}
 
-export default Login;
+export default LoginForm;
