@@ -51,7 +51,7 @@ function App() {
        <main>
         <Routes>
 
-          <Route exact={true}  path="/airlines" element={<><Airlines airlines={displayedAirlines} /><Search /></>} />
+          <Route exact={true}  path="/airlines" element={<><Search search={search} onSearchChange={setSearch} /><Airlines airlines={displayedAirlines} /></>} />
            
           <Route exact={true}  path="/myprofile" element={<MyProfile />} />
            
