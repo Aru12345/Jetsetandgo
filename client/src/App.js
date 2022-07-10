@@ -31,15 +31,13 @@ function App() {
        <Navbar user={user} setUser={setUser} />
        <main>
         <Routes>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/airlines">
-            <Airlines />
-          </Route>
-          <Route path="/myprofile">
-            <MyProfile />
-          </Route>
+
+          <Route exact={true}  path="/airlines" element={<Airlines />} />
+           
+          <Route exact={true}  path="/myprofile" element={<MyProfile />} />
+           
+          <Route exact={true} path="/" element={<Home user={user}/>} />
+            
         </Routes>
       </main>
 

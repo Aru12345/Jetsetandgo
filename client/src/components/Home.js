@@ -1,6 +1,8 @@
-function Home(){
+import { useReducer } from "react";
+
+function Home({user}){
     return (<>
-    <h1>This is Home</h1>
+    <h1>Welcome {user.name}</h1>
     </>)
 }
 export default Home;

@@ -14,16 +14,17 @@ function Navbar({ user, setUser }) {
    <>
      <h1>Navbar</h1>
        
-         
-            <button as={Link} to="/">
+        <NavLink  exact={true} to="/">
          Home
-        </button>
-            <button as={Link} to="/airlines">
+        </NavLink>
+        
+        <NavLink exact={true} to="/airlines">
           Airlines
-        </button>
-            <button as={Link} to="/myprofile">
+        </NavLink>
+        <NavLink exact={true}  to="/myprofile">
          My Profile
-        </button>
+        </NavLink>
+       
             <button onClick={handleLogoutClick}>Logout</button>
         
       
