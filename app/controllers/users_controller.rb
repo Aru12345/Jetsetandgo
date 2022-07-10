@@ -1,31 +1,18 @@
 class UsersController < ApplicationController
     
-skip_before_action :authenticate_user,only: [:create,:show]
+    skip_before_action :authorize, only: :create
    
     def create
         user = User.create!(user_params)
-        session[:user_id] = user.id # this is the piece that logs a user in
-        render json: user, status: :created 
+        session[:user_id] = user.id
+        render json: user, status: :created
       end
 
-    def show
-      
-       if current_user
-            render json: current_user,status: :ok
-        else
-            render json: "No current user",status: :unauthorized
-        end
-
-
-    end
-    def destroy 
-        user = User.find_by_id(params[:id])
-        user.destroy 
-        head :no_content 
-    rescue ActiveRecord::RecordNotFound => error 
-       render json: {error: error.message}, status: :not_found
-    end
-
+   
+      def show
+        render json: @current_user
+      end
+    
 
     private 
     
