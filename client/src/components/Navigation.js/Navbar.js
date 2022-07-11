@@ -14,14 +14,14 @@ function Navbar({ user, setUser }) {
    <>
      <h1>Navbar</h1>
        
-        <NavLink  exact={true} to="/">
+        <NavLink   to="/">
          Home
         </NavLink>
         
-        <NavLink exact={true} to="/airlines">
+        <NavLink  to="/airlines">
           Airlines
         </NavLink>
-        <NavLink exact={true}  to="/myprofile">
+        <NavLink   to="/myprofile">
          My Profile
         </NavLink>
        

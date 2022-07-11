@@ -14,7 +14,7 @@ import Search from "./Search";
 
 function App() {
   const [user, setUser] = useState(null);
-  const[airlines,setAirlines]=useState([]);
+  
   const[search,setSearch]=useState("");
 
   useEffect(() => {
@@ -30,18 +30,9 @@ function App() {
     document.title = "JetSetGo"
  }, []);
   
- useEffect(()=>{
-  fetch("/airlines")
-  .then(res=>res.json())
-  .then(airData=>{
-    setAirlines(airData)
-  })
+ 
 
- },[])
 
- const displayedAirlines=airlines.filter((airline)=>{
-  return airline.name.toLowerCase().includes(search.toLowerCase());
- })
 
   if (!user) return <Login onLogin={setUser} />;
 
@@ -51,11 +42,11 @@ function App() {
        <main>
         <Routes>
 
-          <Route exact={true}  path="/airlines" element={<><Search search={search} onSearchChange={setSearch} /><Airlines airlines={displayedAirlines} /></>} />
+          <Route exact  path="/airlines" element={<><Search search={search} onSearchChange={setSearch} /><Airlines  /></>} />
            
-          <Route exact={true}  path="/myprofile" element={<MyProfile />} />
+          <Route exact  path="/myprofile" element={<MyProfile />} />
            
-          <Route exact={true} path="/" element={<Home user={user}/>} />
+          <Route exact path="/" element={<Home user={user}/>} />
             
         </Routes>
       </main>
