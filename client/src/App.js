@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState(null);
   
   const[search,setSearch]=useState("");
+  
 
   useEffect(() => {
     // auto-login
@@ -31,12 +32,13 @@ function App() {
     document.title = "JetSetGo"
  }, []);
   
- 
+
 
 
 
   if (!user) return <Login onLogin={setUser} />;
 
+  
   return (
     <>
        <Navbar user={user} setUser={setUser} />
@@ -47,8 +49,8 @@ function App() {
            
           <Route exact  path="/myprofile" element={<MyProfile />} />
           
-          <Route exact  path="/reviews" element={<Reviews />} />
-          
+       
+          <Route exact  path="/airlines/:id" element={<Reviews />} />
            
           <Route exact path="/" element={<Home user={user}/>} />
         

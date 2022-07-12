@@ -1,9 +1,12 @@
 import AirlinesCard from "./AirlinesCard";
 import { useState,useEffect } from "react";
-
+import Reviews from "./Reviews";
+import { Routes,Route } from "react-router-dom";
 function Airlines(){
     const[airlines,setAirlines]=useState([]);
+   
 
+    
     useEffect(()=>{
         fetch("/airlines")
         .then(res=>res.json())
@@ -13,6 +16,7 @@ function Airlines(){
       
        },[])
       
+
        
     return(
         <>
@@ -22,6 +26,7 @@ function Airlines(){
        ))
 
        }
+       
         </>
     )
 }
