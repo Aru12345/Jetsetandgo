@@ -10,6 +10,7 @@ import LoginForm from "./components/Authentication/LoginForm";
 import Login from "./pages/Login";
 import SignUp from "./components/Authentication/SignupForm";
 import Search from "./Search";
+import Reviews from "./components/Reviews";
 
 
 function App() {
@@ -45,9 +46,12 @@ function App() {
           <Route exact  path="/airlines" element={<><Search search={search} onSearchChange={setSearch} /><Airlines  /></>} />
            
           <Route exact  path="/myprofile" element={<MyProfile />} />
+          
+          <Route exact  path="/reviews" element={<Reviews />} />
+          
            
           <Route exact path="/" element={<Home user={user}/>} />
-            
+        
         </Routes>
       </main>
 
