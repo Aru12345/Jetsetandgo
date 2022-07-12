@@ -3,8 +3,8 @@ import {useParams} from "react-router-dom"
 import { Link } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
 import { useState,useEffect } from "react";
-function Reviews(){
-  const[reviews,setReviews]=useState([]); 
+function Reviews({reviews,setReviews}){
+ 
 
   useEffect(()=>{
     fetch("/reviews")
@@ -13,6 +13,12 @@ function Reviews(){
       setReviews(reviewData)
     })
   },[])
+
+  function handleAddReviews(newReview){
+    console.log("in handle add review", newReview)
+    setReviews([...reviews,newReview]);
+   
+  }
   
    
 
@@ -28,7 +34,7 @@ function Reviews(){
         <h1>Reviews</h1>
        
         <Link  to="/airlines"><button>Go Back</button></Link>
-    
+        <Link to={`/airlines/${id}/reviews/new`}><button>Add a Review</button></Link>
         { filteredReviews.map((review)=>{
   return (
     <ReviewCard key={review.id} id={review.id} review={review} /> 

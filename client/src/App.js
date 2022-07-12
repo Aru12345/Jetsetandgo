@@ -11,11 +11,11 @@ import Login from "./pages/Login";
 import SignUp from "./components/Authentication/SignupForm";
 import Search from "./Search";
 import Reviews from "./components/Reviews";
-
+import AddReviewForm from "./components/AddReviewForm";
 
 function App() {
   const [user, setUser] = useState(null);
-  
+  const[reviews,setReviews]=useState([]); 
   const[search,setSearch]=useState("");
   
 
@@ -32,6 +32,12 @@ function App() {
     document.title = "JetSetGo"
  }, []);
   
+
+ function handleAddReviews(newReview){
+  console.log("in handle add review", newReview)
+  setReviews([...reviews,newReview]);
+ 
+}
 
 
 
@@ -50,8 +56,10 @@ function App() {
           <Route exact  path="/myprofile" element={<MyProfile />} />
           
        
-          <Route exact  path="/airlines/:id" element={<Reviews />} />
+          <Route exact  path="/airlines/:id" element={<Reviews reviews={reviews} setReviews={setReviews} />} />
            
+          <Route path="/airlines/:airline_id/reviews/new"  element={<AddReviewForm onAddReview={handleAddReviews} />} />
+            
           <Route exact path="/" element={<Home user={user}/>} />
         
         </Routes>
