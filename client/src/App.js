@@ -11,7 +11,7 @@ import Login from "./pages/Login";
 import SignUp from "./components/Authentication/SignupForm";
 import Search from "./Search";
 import Reviews from "./components/Reviews";
-import AddReviewForm from "./components/AddReviewForm";
+import AddreviewForm from "./components/AddreviewForm";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -33,8 +33,9 @@ function App() {
  }, []);
   
 
+ 
  function handleAddReviews(newReview){
-  console.log("in handle add review", newReview)
+  
   setReviews([...reviews,newReview]);
  
 }
@@ -58,8 +59,8 @@ function App() {
        
           <Route exact  path="/airlines/:id" element={<Reviews reviews={reviews} setReviews={setReviews} />} />
            
-          <Route path="/airlines/:airline_id/reviews/new"  element={<AddReviewForm onAddReview={handleAddReviews} />} />
-            
+          <Route path="/airlines/:id/reviews/new" element={ <AddreviewForm onAddReview={handleAddReviews}/>} />
+        
           <Route exact path="/" element={<Home user={user}/>} />
         
         </Routes>

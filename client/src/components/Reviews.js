@@ -23,10 +23,10 @@ function Reviews({reviews,setReviews}){
    
 
     const {id}=useParams();
-    console.log(id);
+   
     console.log(reviews)
      let filteredReviews=reviews.filter(review=>{
-      console.log(review.airline_id)
+ 
       
        return review.airline.id===parseInt(id)})
     return(
