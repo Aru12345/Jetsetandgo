@@ -8,7 +8,7 @@ function Airlines(){
 
     
     useEffect(()=>{
-        fetch("http://localhost:3000/airlines")
+        fetch("/airlines")
         .then(res=>res.json())
         .then(airData=>{
           setAirlines(airData)

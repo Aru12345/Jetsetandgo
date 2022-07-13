@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("http://localhost:3000/me").then((r) => {
+    fetch("/me",{credentials:"same-origin"}).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -59,7 +59,7 @@ function App() {
        
           <Route exact  path="/airlines/:id" element={<Reviews reviews={reviews} setReviews={setReviews} />} />
            
-          <Route path="/airlines/:id/reviews/new" element={ <AddreviewForm onAddReview={handleAddReviews}/>} />
+          <Route path="/airlines/:id/reviews/new" element={ <AddreviewForm onAddReview={handleAddReviews} user={user}/>} />
         
           <Route exact path="/" element={<Home user={user}/>} />
         

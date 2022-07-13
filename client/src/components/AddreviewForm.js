@@ -3,14 +3,14 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
-function AddreviewForm(){
+function AddreviewForm({user}){
 
   
 const navigate=useNavigate();
    
   
   const params=useParams()
-  
+  console.log(params)
 
     const [reviewData, setreviewData] = useState({
     
@@ -34,10 +34,12 @@ const navigate=useNavigate();
     event.preventDefault();
  
     const newReview ={
-        ...reviewData
+        ...reviewData,
+        airline_id:params.id,
+        user_id:user.id
     };
-
-    fetch(`http://localhost:3000/reviews`, {
+console.log(newReview)
+    fetch(`/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

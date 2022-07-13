@@ -10,7 +10,7 @@ const Reviews = ({reviews, setReviews}) => {
   const { id } = useParams();
 
   useEffect(()=>{
-    fetch("http://localhost:3000/reviews")
+    fetch("/reviews")
     .then(res=>res.json())
     .then(reviewData=>{
       setReviews(reviewData)
