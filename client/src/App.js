@@ -12,11 +12,13 @@ import SignUp from "./components/Authentication/SignupForm";
 import Search from "./Search";
 import Reviews from "./components/Reviews";
 import AddreviewForm from "./components/AddreviewForm";
+import MyReviews from "./components/MyReviews";
 
 function App() {
   const [user, setUser] = useState(null);
   const[reviews,setReviews]=useState([]); 
   const[search,setSearch]=useState("");
+  const[myReviewsArray,setMyReviewsArray]=useState([]);
   
 
   useEffect(() => {
@@ -40,10 +42,14 @@ function App() {
  
 }
 
+function addReviewsToState(reviewObj){
+  setMyReviewsArray([...myReviewsArray,reviewObj])
+}
 
 
 
   if (!user) return <Login onLogin={setUser} />;
+  
 
   
   return (
@@ -54,10 +60,10 @@ function App() {
 
           <Route exact  path="/airlines" element={<><Search search={search} onSearchChange={setSearch} /><Airlines  /></>} />
            
-          <Route exact  path="/myprofile" element={<MyProfile />} />
+          <Route exact  path="/myprofile" element={<><MyProfile myReviewsArray={myReviewsArray} setMyReviewsArray={setMyReviewsArray}  user={user}   /></>}/>
           
-       
-          <Route exact  path="/airlines/:id" element={<Reviews reviews={reviews} setReviews={setReviews} />} />
+
+          <Route exact  path="/airlines/:id" element={<Reviews reviews={reviews} setReviews={setReviews}   />} />
            
           <Route path="/airlines/:id/reviews/new" element={ <AddreviewForm onAddReview={handleAddReviews} user={user}/>} />
         

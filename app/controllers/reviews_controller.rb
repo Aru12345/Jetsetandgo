@@ -30,6 +30,8 @@ class ReviewsController < ApplicationController
         review=Review.find(params[:id])
         review.destroy
         head :no_content
+    rescue ActiveRecord::RecordInvalid => invalid
+        render json: { errors: invalid.record.errors }, status: :not_found
     end
 
     private
