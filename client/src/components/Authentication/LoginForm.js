@@ -32,30 +32,30 @@ function LoginForm({ onLogin }) {
   return (
    <div className="loginform">
     
-   <h1 class="heading">JetSetGo.com</h1>
+   <h1 className="heading">JetSetGo.com</h1>
  
-    <form onSubmit={handleSubmit}  class="lform">
-    <div class="mb-3">
-        <label htmlFor="email"  class="form-label thelabel" >Email</label>
+    <form onSubmit={handleSubmit}  className="lform">
+    <div className="mb-3">
+        <label htmlFor="email"  className="form-label thelabel" >Email</label>
         <input
           type="text"
           id="email"
-          class="form-control"
+          className="form-control"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
     </div>
-    <div class="mb-3"> 
-        <label htmlFor="password"  class="form-label thelabel">Password</label>
+    <div className="mb-3"> 
+        <label htmlFor="password"  className="form-label thelabel">Password</label>
         <input
           type="password"
           id="password"
-          class="form-control"
+          className="form-control"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
      </div> 
-        <button type="submit" class="btn btn-primary" >
+        <button type="submit" className="btn btn-primary" >
           {isLoading ? "Loading..." : "Login"}
         </button>
       

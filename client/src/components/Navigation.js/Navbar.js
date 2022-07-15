@@ -11,11 +11,11 @@ function Navbar({ user, setUser }) {
   }
 
   return (
-    <nav class="nav navbarstyle">
-  <a class="nav-link  nlink"  href="/"> Home</a>
-  <a class="nav-link nlink" href="/airlines">  Airlines</a>
-  <a class="nav-link nlink" href="/myprofile"> My Profile</a>
-  <button type="button" class="btn btn-primary logoutbtn"onClick={handleLogoutClick}>Logout</button>
+    <nav className="nav navbarstyle">
+  <a className="nav-link  nlink"  href="/"> Home</a>
+  <a className="nav-link nlink" href="/airlines">  Airlines</a>
+  <a className="nav-link nlink" href="/myprofile"> My Profile</a>
+  <button type="button" className="btn btn-primary logoutbtn"onClick={handleLogoutClick}>Logout</button>
 </nav>
 
   );

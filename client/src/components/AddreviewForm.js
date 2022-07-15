@@ -74,7 +74,7 @@ return(
     <label>Description:</label>
        <input type="text" name="description" aria-label="description" value={reviewData.description} onChange={handleReviewChange} ></input>
     
-    <input class="submit" type="submit"  />
+    <input className="submit" type="submit"  />
 
   </form>
  </>

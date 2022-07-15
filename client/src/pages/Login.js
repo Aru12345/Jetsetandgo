@@ -12,9 +12,9 @@ function Login({onLogin}){
           <div>
             <LoginForm onLogin={onLogin} />
             
-            <p class="thelabel forsup">
+            <p className="thelabel forsup">
               Don't have an account? 
-              <button class="btn btn-primary signupbtn"  onClick={() => setShowLogin(false)}>
+              <button className="btn btn-primary signupbtn"  onClick={() => setShowLogin(false)}>
                 Sign Up
               </button>
             </p>
@@ -23,9 +23,9 @@ function Login({onLogin}){
           <>
             <SignUpForm onLogin={onLogin} />
            
-            <p class="thelabel forsup">
+            <p className="thelabel forsup">
               Already have an account? &nbsp;
-              <button  class="btn btn-primary" onClick={() => setShowLogin(true)}>
+              <button  className="btn btn-primary" onClick={() => setShowLogin(true)}>
                 Log In
               </button>
             </p>

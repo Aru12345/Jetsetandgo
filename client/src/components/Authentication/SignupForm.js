@@ -37,44 +37,44 @@ function SignUpForm({ onLogin }) {
 
   return (
     <div className="loginform">
-    <h1 class="heading">JetSetGo.com</h1>
-    <form onSubmit={handleSubmit}  class="lform">
-    <div class="mb-3">
-        <label htmlFor="name" class="form-label thelabel" >Name</label>
+    <h1 className="heading">JetSetGo.com</h1>
+    <form onSubmit={handleSubmit}  className="lform">
+    <div className="mb-3">
+        <label htmlFor="name" className="form-label thelabel" >Name</label>
         <input
           type="text"
           id="name"
           value={name}
-          class="form-control thelabel"
+          className="form-control thelabel"
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div class="mb-3">
-     <label htmlFor="email" class="form-label thelabel">Email</label>
+      <div className="mb-3">
+     <label htmlFor="email" className="form-label thelabel">Email</label>
         <input
           type="text"
           id="email"
           value={email}
-          class="form-control thelabel"
+          className="form-control thelabel"
           onChange={(e) => setEmail(e.target.value)}
           
         />
       </div>
-      <div id="emailHelp" class="form-text note">We'll never share your email with anyone else.</div>
-      <div class="mb-3">
+      <div id="emailHelp" className="form-text note">We'll never share your email with anyone else.</div>
+      <div className="mb-3">
      
-        <label htmlFor="password" class="form-label thelabel">Password</label>
+        <label htmlFor="password" className="form-label thelabel">Password</label>
         <input
           type="password"
           id="password"
           value={password}
-          class="form-control thelabel"
+          className="form-control thelabel"
           onChange={(e) => setPassword(e.target.value)}
        
         />
      
       </div> 
-        <button type="submit" class="btn btn-primary">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button type="submit" className="btn btn-primary">{isLoading ? "Loading..." : "Sign Up"}</button>
      
     
     </form>
