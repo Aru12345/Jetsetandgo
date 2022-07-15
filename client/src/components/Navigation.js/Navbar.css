@@ -1,0 +1,22 @@
+.navbarstyle{
+    background-color: rgb(255, 253, 253);
+
+  
+   
+}
+.nlink{
+   margin: 1.5%;
+   font-size: 128%;
+   margin-left: 4%;
+   font-family: "Copperplate";
+   font-weight: 5%;
+}
+
+.logoutbtn{
+    height: 4%;
+    width: 13%;
+    margin-left: 40%;
+    margin-top: 2%;
+    
+    
+}
