@@ -25,7 +25,7 @@ function Navbar({ user, setUser }) {
          My Profile
         </NavLink>
        
-            <button onClick={handleLogoutClick}>Logout</button>
+        <button onClick={handleLogoutClick}>Logout</button>
         
       
     </>

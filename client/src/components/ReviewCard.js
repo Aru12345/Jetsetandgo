@@ -4,6 +4,17 @@ function ReviewCard({review,onDeleteReview}){
     const {id}=useParams();
     const{image,date,destination,seat,description,likes,dislikes,airline_id,user_id}=review;
    
+
+  function handleDeleteReview() {
+    fetch(`/reviews/${id}`, {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        onDeleteReview(review);
+      }
+    });
+  }
+
     return(
         <>
         <img src={image} />
@@ -14,7 +25,7 @@ function ReviewCard({review,onDeleteReview}){
         <h3>{likes}</h3>
         <h3>{dislikes}</h3>
         <cite>By {review.user.name}</cite>
-     
+        <button className ="btn btn-primary" onClick={handleDeleteReview}>Delete</button>
         </>
     )
 }

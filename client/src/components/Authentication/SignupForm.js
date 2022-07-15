@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./Login.css"
 
 function SignUpForm({ onLogin }) {
   const [name,setName]=useState("");
@@ -36,43 +36,49 @@ function SignUpForm({ onLogin }) {
   }
 
   return (
-    <>
-    <h1>JetSetGo.com</h1>
-    <form onSubmit={handleSubmit}>
-      
-        <label htmlFor="name">Name</label>
+    <div className="loginform">
+    <h1 class="heading">JetSetGo.com</h1>
+    <form onSubmit={handleSubmit}  class="lform">
+    <div class="mb-3">
+        <label htmlFor="name" class="form-label thelabel" >Name</label>
         <input
           type="text"
           id="name"
           value={name}
+          class="form-control thelabel"
           onChange={(e) => setName(e.target.value)}
         />
-
-     <label htmlFor="email">Email</label>
+      </div>
+      <div class="mb-3">
+     <label htmlFor="email" class="form-label thelabel">Email</label>
         <input
           type="text"
           id="email"
           value={email}
+          class="form-control thelabel"
           onChange={(e) => setEmail(e.target.value)}
           
         />
-   
+      </div>
+      <div id="emailHelp" class="form-text note">We'll never share your email with anyone else.</div>
+      <div class="mb-3">
      
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" class="form-label thelabel">Password</label>
         <input
           type="password"
           id="password"
           value={password}
+          class="form-control thelabel"
           onChange={(e) => setPassword(e.target.value)}
        
         />
      
-       
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+      </div> 
+        <button type="submit" class="btn btn-primary">{isLoading ? "Loading..." : "Sign Up"}</button>
      
     
     </form>
-    </>
+    </div>
   );
 }
 

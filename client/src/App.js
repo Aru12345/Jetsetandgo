@@ -1,7 +1,6 @@
 // client/src/components/App.js
 import React, { useEffect, useState } from "react";
 import { Routes ,Route } from 'react-router-dom';
-
 import Airlines from "./components/Airlines";
 import MyProfile from "./components/MyProfile";
 import Home from "./components/Home";
@@ -13,6 +12,8 @@ import Search from "./Search";
 import Reviews from "./components/Reviews";
 import AddreviewForm from "./components/AddreviewForm";
 import MyReviews from "./components/MyReviews";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -45,7 +46,11 @@ function App() {
 function addReviewsToState(reviewObj){
   setMyReviewsArray([...myReviewsArray,reviewObj])
 }
-
+function handleDeleteReview(deletedReview) {
+  setReviews((reviews) =>
+    reviews.filter((review) => review.id !== deletedReview.id)
+  );
+}
 
 
   if (!user) return <Login onLogin={setUser} />;
@@ -53,7 +58,7 @@ function addReviewsToState(reviewObj){
 
   
   return (
-    <>
+    <div>
        <Navbar user={user} setUser={setUser} />
        <main>
         <Routes>
@@ -63,7 +68,7 @@ function addReviewsToState(reviewObj){
           <Route exact  path="/myprofile" element={<><MyProfile myReviewsArray={myReviewsArray} setMyReviewsArray={setMyReviewsArray}  user={user}   /></>}/>
           
 
-          <Route exact  path="/airlines/:id" element={<Reviews reviews={reviews} setReviews={setReviews}   />} />
+          <Route exact  path="/airlines/:id" element={<Reviews reviews={reviews} setReviews={setReviews}  onDeleteReview={handleDeleteReview}   />} />
            
           <Route path="/airlines/:id/reviews/new" element={ <AddreviewForm onAddReview={handleAddReviews} user={user}/>} />
         
@@ -72,7 +77,7 @@ function addReviewsToState(reviewObj){
         </Routes>
       </main>
 
-  </>
+  </div>
   );
   
 }

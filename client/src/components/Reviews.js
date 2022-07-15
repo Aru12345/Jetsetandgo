@@ -5,7 +5,7 @@ import ReviewCard from "./ReviewCard";
 import { useState,useEffect } from "react";
 
 
-const Reviews = ({reviews, setReviews}) => {
+const Reviews = ({reviews, setReviews,onDeleteReview}) => {
 
   const { id } = useParams();
 
@@ -39,7 +39,7 @@ console.log(reviews)
     <Link to={`/airlines/${id}/reviews/new`}><button>Add a Review</button></Link>
       {filteredReviews.map((review) => {
         return (
-          <ReviewCard key={review.id} id={review.id} review={review}  /> 
+          <ReviewCard key={review.id} id={review.id} review={review}  onDeleteReview={onDeleteReview} /> 
         )
       })}
     </>

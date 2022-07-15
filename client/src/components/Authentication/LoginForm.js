@@ -1,8 +1,9 @@
 
 
 import React, { useState } from "react";
-
-
+import { Button } from "react-bootstrap";
+import "./App.css";
+import "./Login.css"
 function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,36 +30,40 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-   <>
-   <h1>JetSetGo.com</h1>
-    <form onSubmit={handleSubmit}>
-  
-        <label htmlFor="email">Email</label>
+   <div className="loginform">
+    
+   <h1 class="heading">JetSetGo.com</h1>
+ 
+    <form onSubmit={handleSubmit}  class="lform">
+    <div class="mb-3">
+        <label htmlFor="email"  class="form-label thelabel" >Email</label>
         <input
           type="text"
           id="email"
-          
+          class="form-control"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-     
-        <label htmlFor="password">Password</label>
+    </div>
+    <div class="mb-3"> 
+        <label htmlFor="password"  class="form-label thelabel">Password</label>
         <input
           type="password"
           id="password"
-          
+          class="form-control"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      
-        <button  type="submit">
+     </div> 
+        <button type="submit" class="btn btn-primary" >
           {isLoading ? "Loading..." : "Login"}
         </button>
       
-       
+      
       
     </form>
-    </>
+    
+    </div>
   );
 }
 export default LoginForm;
