@@ -59,7 +59,7 @@ function App() {
             path="/airlines"
             element={
               <>
-                <Search search={search} onSearchChange={setSearch} />
+               
                 <Airlines />
               </>
             }

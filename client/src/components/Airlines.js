@@ -1,7 +1,7 @@
 import AirlinesCard from "./AirlinesCard";
 import { useState,useEffect } from "react";
-import Reviews from "./Reviews";
-import { Routes,Route } from "react-router-dom";
+
+import "./Styling.css"
 function Airlines(){
     const[airlines,setAirlines]=useState([]);
    
@@ -19,15 +19,15 @@ function Airlines(){
 
        
     return(
-        <>
-        <h1>Airlines</h1>
+        <div class="airblock" >
+      
        {airlines.map((airline)=>(
         <AirlinesCard key={airline.id} airline={airline}/>
        ))
 
        }
        
-        </>
+        </div>
     )
 }
 export default Airlines;

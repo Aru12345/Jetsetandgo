@@ -10,3 +10,29 @@
     margin-left: 25%;
     margin-top: 3%;
 }
+
+.airlinecard{
+    display: inline-block;
+    margin: 50px;
+    text-align: center;
+    width: 370px;
+    height: 430px;
+    margin:55px;
+    padding:15px;
+   
+    border-radius:5px;
+   
+    background:#f5f5f5;
+    overflow-x:auto;
+}
+
+.cardimg{
+    width:300px;
+    height:280px;
+    margin: 1%;
+    padding: 3%;
+}
+
+.btnp{
+    margin: 1%;
+}
