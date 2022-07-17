@@ -10,8 +10,8 @@ function AirlinesCard({airline}){
         <img className="cardimg"  src={image} />
         <Card.Title>{name}</Card.Title>
         <Card.Text>{slogan}</Card.Text>
-        <Button variant="info" href={`/airlines/${id}`} >Enter</Button>
-        <Button variant="primary" href={wlink} target="_blank" >Book your tickets</Button>
+        <Button className="btnp" variant="info" href={`/airlines/${id}`} >Enter</Button>
+        <Button className="btnp"  variant="primary" href={wlink} target="_blank" >Book your tickets</Button>
           
      </div>
     )

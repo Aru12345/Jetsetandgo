@@ -11,7 +11,7 @@ function Home({user}){
   };
   
     return (<>
-    <h1 className="greeting">Hey {user.name}! Welcome to JetSet</h1>
+    <h1 className="greeting">Hey {user.name}! Welcome to JetSet 🗺️</h1>
     <div class="frame">
     <Carousel variant="dark" >
       <Carousel.Item>
