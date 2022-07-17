@@ -73,3 +73,24 @@
 .reviewb{
     height: 25%;
 }
+
+.reviewformheading{
+    color:white;
+    font-family: "Copperplate";
+    margin: 2%;
+    margin-left: 24%;
+}
+
+.fheading{
+    color: white;
+    font-size: 120%;
+}
+
+.rform{
+    width: 50%;
+    margin-left:24%;
+}
+
+.backb{
+    margin: 1%;
+}

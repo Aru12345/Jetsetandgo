@@ -3,8 +3,8 @@ import { useState,useEffect } from "react";
 
 import "./Styling.css"
 function Airlines(){
-    const[airlines,setAirlines]=useState([]);
    
+    const[airlines,setAirlines]=useState([]);
 
     
     useEffect(()=>{
@@ -23,6 +23,7 @@ function Airlines(){
       
        {airlines.map((airline)=>(
         <AirlinesCard key={airline.id} airline={airline}/>
+        
        ))
 
        }
