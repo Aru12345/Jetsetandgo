@@ -2,19 +2,16 @@ import {useParams} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "./Styling.css"
-function ReviewCard({review,onDeleteReview}){
+function ReviewCard({review,handleDelete}){
     const {id}=useParams();
     const{image,date,destination,seat,description,likes,dislikes,airline_id,user_id}=review;
    
 
   function handleDeleteReview() {
-    fetch(`/reviews/${id}`, {
+    fetch(`/reviews/${review.id}`, {
       method: "DELETE",
-    }).then((r) => {
-      if (r.ok) {
-        onDeleteReview(review);
-      }
-    });
+    })
+    handleDelete(review.id)
   }
 
     return(

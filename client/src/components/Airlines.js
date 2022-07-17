@@ -2,9 +2,9 @@ import AirlinesCard from "./AirlinesCard";
 import { useState,useEffect } from "react";
 
 import "./Styling.css"
-function Airlines(){
+function Airlines({airlines,setAirlines}){
    
-    const[airlines,setAirlines]=useState([]);
+ 
 
     
     useEffect(()=>{

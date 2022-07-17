@@ -18,9 +18,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState([]);
-  const [search, setSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [myReviewsArray, setMyReviewsArray] = useState([]);
- 
+  const[airlines,setAirlines]=useState([]);
    
   useEffect(() => {
     // auto-login
@@ -35,6 +35,10 @@ function App() {
     document.title = "JetSetGo";
   }, []);
 
+  const displayedAirlines = airlines.filter((airline) => {
+    return airline.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   function handleAddReviews(newReview) {
     setReviews([...reviews, newReview]);
   }
@@ -48,7 +52,7 @@ function App() {
     );
   }
 
-  if (!user) return <Login onLogin={setUser} />;
+  if (!user) return <Login error={'please login'} onLogin={setUser} />;
 
   return (
     <div>
@@ -60,8 +64,8 @@ function App() {
             path="/airlines"
             element={
               <>
-               
-                <Airlines  />
+           
+                <Airlines airlines={airlines} setAirlines={setAirlines} />
               </>
             }
           />
@@ -87,7 +91,7 @@ function App() {
               <Reviews
                 reviews={reviews}
                 setReviews={setReviews}
-                onDeleteReview={handleDeleteReview}
+                
               />
             }
           />

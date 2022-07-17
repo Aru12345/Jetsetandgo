@@ -26,7 +26,7 @@ function MyProfile({user}){
     return(
         <>
         {console.log("u: ",u[0].reviews)}
-        <h1>This is my prfoile.</h1> 
+        
         {u[0].reviews.map((u)=>(
         <MyReviews key={u.id} id={u.id} u={u}/>
        ))

@@ -22,6 +22,7 @@ const Reviews = ({reviews, setReviews,onDeleteReview}) => {
     setReviews([...reviews,newReview]);
   }
 
+
 console.log(reviews)
   let filteredReviews = reviews.filter(review => {
 
@@ -32,6 +33,10 @@ console.log(reviews)
     return null;
   })
 
+  function handleDelete(id){
+    let newReviews=reviews.filter(r=>r.id !== id)
+    setReviews(newReviews)
+  }
   return (
     <>
     <div className="reviewb">
@@ -40,7 +45,7 @@ console.log(reviews)
     </div>
       {filteredReviews.map((review) => {
         return (
-          <ReviewCard key={review.id} id={review.id} review={review}  onDeleteReview={onDeleteReview} /> 
+          <ReviewCard key={review.id} id={review.id} review={review}  handleDelete={handleDelete} /> 
         )
       })}
     </>
