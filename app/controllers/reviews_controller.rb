@@ -27,11 +27,14 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        review=Review.find(params[:id])
+   
+        review = @current_user.reviews.find(params[:id])
+
+        if @current_user
         review.destroy
-        head :no_content
-    rescue ActiveRecord::RecordInvalid => invalid
-        render json: { errors: invalid.record.errors }, status: :not_found
+        else
+            render json: {error: "Review of someone else."}, status: :not_found
+        end
     end
 
     private

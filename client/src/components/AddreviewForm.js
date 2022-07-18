@@ -75,7 +75,7 @@ function AddreviewForm({ user }) {
 
       <Form.Group className="mb-3" >
         <Form.Label className="fheading">Date:</Form.Label>
-        <Form.Control   type="text"
+        <Form.Control   type="date"
           name="date"
           aria-label="date"
           value={reviewData.date}

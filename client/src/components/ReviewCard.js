@@ -6,13 +6,17 @@ function ReviewCard({review,handleDelete}){
     const {id}=useParams();
     const{image,date,destination,seat,description,likes,dislikes,airline_id,user_id}=review;
    
+    function handleDeleteClick() {
+ 
+      fetch(`/reviews/${review.id}`, {
+        method: "DELETE",
+  
+      })
+      handleDelete(review.id)
+      
+  
+    } 
 
-  function handleDeleteReview() {
-    fetch(`/reviews/${review.id}`, {
-      method: "DELETE",
-    })
-    handleDelete(review.id)
-  }
 
     return(
         <div className="reviewcard">
@@ -37,7 +41,7 @@ function ReviewCard({review,handleDelete}){
         <Button  className ="btn btn-danger"  >👎🏻  </Button>
         <hr />
         
-        <Button  className ="btn btn-primary"  onClick={handleDeleteReview}>Delete</Button>
+        <Button  className ="btn btn-primary" onClick={handleDeleteClick}  >Delete</Button>
         
           
     

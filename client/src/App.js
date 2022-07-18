@@ -46,11 +46,9 @@ function App() {
   function addReviewsToState(reviewObj) {
     setMyReviewsArray([...myReviewsArray, reviewObj]);
   }
-  function handleDeleteReview(deletedReview) {
-    setReviews((reviews) =>
-      reviews.filter((review) => review.id !== deletedReview.id)
-    );
-  }
+
+  
+  
 
   if (!user) return <Login error={'please login'} onLogin={setUser} />;
 
