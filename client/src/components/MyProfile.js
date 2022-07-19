@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MyReviews from "./MyReviews";
-function MyProfile({user}){
+function MyProfile({user,handleDelete}){
     
     const [u,setu]=useState([{reviews:[{image:"xxx",destination:"newyork",date:"3/12/2022",description:"good",user:{name:"jhon"},id:5}]}])
     let data=[]

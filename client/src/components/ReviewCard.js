@@ -2,22 +2,60 @@ import {useParams} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "./Styling.css"
-function ReviewCard({review,handleDelete}){
+function ReviewCard({review,handleDelete,onUpdateReview,user}){
     const {id}=useParams();
-    const{image,date,destination,seat,description,likes,dislikes,airline_id,user_id}=review;
+    const{image,date,destination,seat,description,likes,dislikes,airline_id,user:reviewuser}=review;
    
-    function handleDeleteClick() {
- 
+    
+
+      function handleDeleteClick() {
       fetch(`/reviews/${review.id}`, {
         method: "DELETE",
-  
       })
-      handleDelete(review.id)
+        
+        handleDelete(review.id)
+    }
+  
+
+
+    function handleLikeClick() {
       
   
-    } 
+      fetch(`/reviews/${review.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ likes: review.likes + 1 }),
+      })
+        .then((r) => r.json())
+        .then((updatedReview) => {
+          onUpdateReview(updatedReview);
+        });
+    }
 
+  
+  
+    function handleDislikeClick() {
+      
+  
+      fetch(`/reviews/${review.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({dislikes: review.dislikes+1}),
+      })
+        .then((r) => r.json())
+        .then((updatedReview) => {
+          onUpdateReview(updatedReview);
+        });
+    }
+  
 
+    
+
+   
     return(
         <div className="reviewcard">
 
@@ -36,12 +74,12 @@ function ReviewCard({review,handleDelete}){
 
         <br/>
 
-        <Button  className ="btn btn-success"  >👍🏻 </Button>
+       {user.id!==reviewuser.id&&<Button onClick={handleLikeClick} className ="btn btn-success"  >👍🏻 </Button>}
 
-        <Button  className ="btn btn-danger"  >👎🏻  </Button>
+       {user.id!==reviewuser.id&& <Button onClick={handleDislikeClick} className ="btn btn-danger"  >👎🏻  </Button>}
         <hr />
         
-        <Button  className ="btn btn-primary" onClick={handleDeleteClick}  >Delete</Button>
+        {user.id===reviewuser.id&&<Button  className ="btn btn-primary" onClick={handleDeleteClick}  >Delete</Button>}
         
           
     

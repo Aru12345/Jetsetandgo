@@ -5,7 +5,7 @@ import ReviewCard from "./ReviewCard";
 import { useState,useEffect } from "react";
 import Button from "react-bootstrap/esm/Button";
 import "./Styling.css"
-const Reviews = ({reviews, setReviews}) => {
+const Reviews = ({reviews, setReviews,onUpdateReview,user}) => {
 
   const { id } = useParams();
 
@@ -22,13 +22,16 @@ const Reviews = ({reviews, setReviews}) => {
     setReviews([...reviews,newReview]);
   }
 
-  function handleDelete(id){
-    let newReviews=reviews.filter(r=>r.id !== id)
+  function handleDelete(reviewtodelete){
+   const newReviews=reviews.filter(r=>r.id !== reviewtodelete)
+   console.log(newReviews,reviews,reviewtodelete)
     setReviews(newReviews)
+    
+ 
   }
 
 
-console.log(reviews)
+
   let filteredReviews = reviews.filter(review => {
 
     if(review.airline?.id) {
@@ -47,7 +50,7 @@ console.log(reviews)
     </div>
       {filteredReviews.map((review) => {
         return (
-          <ReviewCard key={review.id} id={review.id} review={review} handleDelete={handleDelete}  /> 
+          <ReviewCard key={review.id} id={review.id} review={review} handleDelete={handleDelete} onUpdateReview={onUpdateReview} user={user} /> 
         )
       })}
     </>

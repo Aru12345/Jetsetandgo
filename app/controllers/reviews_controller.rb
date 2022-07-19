@@ -20,11 +20,14 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        review=Review.find(params[:id])
+        review = Review.find_by(id: params[:id])
         review.update!(review_params)
         render json: review,status: :ok
 
     end
+
+   
+    
 
     def destroy
    
@@ -40,7 +43,7 @@ class ReviewsController < ApplicationController
     private
     
     def review_params
-        params.permit(:image,:date,:description,:destination,:seat,:user_id,:airline_id)
+        params.permit(:image,:date,:description,:destination,:seat,:likes,:dislikes,:user_id,:airline_id)
 
     end
 

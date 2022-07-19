@@ -47,7 +47,15 @@ function App() {
     setMyReviewsArray([...myReviewsArray, reviewObj]);
   }
 
+  function handleUpdateReview(updatedReview) {
+    const updatedReviews = reviews.map((review) =>{
+    return review.id === updatedReview.id ? updatedReview : review;
+     } );
+    setReviews(updatedReviews);
+  }
+ 
   
+
   
 
   if (!user) return <Login error={'please login'} onLogin={setUser} />;
@@ -88,7 +96,9 @@ function App() {
             element={
               <Reviews
                 reviews={reviews}
+                user={user}
                 setReviews={setReviews}
+                onUpdateReview={handleUpdateReview}
                 
               />
             }
