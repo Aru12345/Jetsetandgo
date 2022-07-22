@@ -35,9 +35,7 @@ function App() {
     document.title = "JetSetGo";
   }, []);
 
-  const displayedAirlines = airlines.filter((airline) => {
-    return airline.name.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+ 
 
   function handleAddReviews(newReview) {
     setReviews([...reviews, newReview]);

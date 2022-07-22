@@ -5,7 +5,7 @@ function MyReviews({u}){
     
     console.log("u: ",u)
     return(
-        <div className="reviewcard" >
+        <div className="myreviewcard" >
          <img  className="cardimg" src={image} />
         <p></p>
         <h6>{date}</h6>
