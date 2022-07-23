@@ -18,7 +18,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [user, setUser] = useState(null);
   const [reviews, setReviews] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const [myReviewsArray, setMyReviewsArray] = useState([]);
   const[airlines,setAirlines]=useState([]);
    

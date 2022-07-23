@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
-  
-
-
+ 
     def index
         review=Review.all
         render json: review
@@ -46,6 +44,6 @@ class ReviewsController < ApplicationController
         params.permit(:image,:date,:description,:destination,:seat,:likes,:dislikes,:user_id,:airline_id)
 
     end
-
+   
    
 end

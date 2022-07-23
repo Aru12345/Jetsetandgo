@@ -41,8 +41,6 @@ To Generate a new React application run
  $ npx create-react-app client --use-npm
 To start use npm --prefix client.
 
-# Deployed 
-Deployed : 
 
 # Licensing
 Copyright <2022>
