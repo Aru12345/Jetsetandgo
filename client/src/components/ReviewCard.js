@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import "./Styling.css"
 function ReviewCard({review,handleDelete,onUpdateReview,user}){
     const {id}=useParams();
-    const{image,date,destination,seat,description,likes,dislikes,airline_id,user:reviewuser}=review;
+    const{image,date,destination,seat,description,likes,dislikes,user:reviewuser}=review;
    
     
 
@@ -12,7 +12,6 @@ function ReviewCard({review,handleDelete,onUpdateReview,user}){
       fetch(`/reviews/${review.id}`, {
         method: "DELETE",
       })
-        
         handleDelete(review.id)
     }
   
@@ -54,7 +53,6 @@ function ReviewCard({review,handleDelete,onUpdateReview,user}){
   
 
     
-
    
     return(
         <div className="reviewcard">
@@ -73,8 +71,8 @@ function ReviewCard({review,handleDelete,onUpdateReview,user}){
          <h6>Dislikes: {dislikes}</h6>
 
         <br/>
-
-       {user.id!==reviewuser.id&&<Button onClick={handleLikeClick} className ="btn btn-success"  >👍🏻 </Button>}
+      
+       {user.id!==reviewuser.id&&<Button onClick={handleLikeClick} className ="btn btn-success"  >👍🏻 </Button> }
 
        {user.id!==reviewuser.id&& <Button onClick={handleDislikeClick} className ="btn btn-danger"  >👎🏻  </Button>}
         <hr />

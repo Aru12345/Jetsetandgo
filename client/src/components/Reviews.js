@@ -1,8 +1,7 @@
 
 import {useParams} from "react-router-dom"
-import { Link } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
-import { useState,useEffect } from "react";
+import { useEffect } from "react";
 import Button from "react-bootstrap/esm/Button";
 import "./Styling.css"
 const Reviews = ({reviews, setReviews,onUpdateReview,user}) => {
@@ -17,19 +16,14 @@ const Reviews = ({reviews, setReviews,onUpdateReview,user}) => {
     })
   },[])
 
-  function handleAddReviews(newReview){
-    console.log("in handle add review", newReview)
-    setReviews([...reviews,newReview]);
-  }
+ 
 
   function handleDelete(reviewtodelete){
    const newReviews=reviews.filter(r=>r.id !== reviewtodelete)
-   console.log(newReviews,reviews,reviewtodelete)
     setReviews(newReviews)
     
  
   }
-
 
 
   let filteredReviews = reviews.filter(review => {

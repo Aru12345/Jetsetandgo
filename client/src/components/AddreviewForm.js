@@ -8,7 +8,7 @@ function AddreviewForm({ user }) {
   const navigate = useNavigate();
 
   const params = useParams();
-  console.log(params);
+
 
   const [reviewData, setreviewData] = useState({
     image: "",
@@ -33,7 +33,7 @@ function AddreviewForm({ user }) {
       airline_id: params.id,
       user_id: user.id,
     };
-    console.log(newReview);
+    
     fetch(`/reviews`, {
       method: "POST",
       headers: {
@@ -42,15 +42,15 @@ function AddreviewForm({ user }) {
       body: JSON.stringify(newReview),
     })
       .then((r) => r.json())
-      .then((newReview) => {
+      .then(
         setreviewData({
           image: "",
           date: "",
           destination: "",
           seat: "",
           description: "",
-        });
-      });
+        })
+      );
     navigate(-1);
   }
 

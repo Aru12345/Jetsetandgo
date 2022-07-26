@@ -1,9 +1,8 @@
 import "./Styling.css"
 import { Card } from "react-bootstrap";
 function MyReviews({u}){
-    const{image,date,destination,seat,description,likes,dislikes,airline_id,user_id}=u;
+    const{image,date,destination,seat,description,likes,dislikes}=u;
     
-    console.log("u: ",u)
     return(
         <div className="myreviewcard" >
          <img  className="cardimg" src={image} />

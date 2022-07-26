@@ -8,7 +8,6 @@ import Navbar from "./components/Navigation.js/Navbar";
 import LoginForm from "./components/Authentication/LoginForm";
 import Login from "./pages/Login";
 import SignUp from "./components/Authentication/SignupForm";
-import Search from "./Search";
 import Reviews from "./components/Reviews";
 import AddreviewForm from "./components/AddreviewForm";
 import MyReviews from "./components/MyReviews";
