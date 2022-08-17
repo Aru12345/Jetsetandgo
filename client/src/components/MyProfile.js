@@ -27,13 +27,9 @@ function MyProfile({user}){
     return(
         <>
         
-        
         {u[0].reviews.map((u)=>(
         <MyReviews key={u.id} id={u.id} u={u}/>
-      
-       ))
-     
-      
+       ))  
        }
 
         </>

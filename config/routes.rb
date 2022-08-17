@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
- 
+
+  get "/search", to: "reviews#search"
+get '/mlikes',to: "reviews#mlikes"
+get '/search',to: "airlines#search"
 end

@@ -20,7 +20,7 @@ function Airlines({airlines,setAirlines}){
        
     return(
         <div class="airblock" >
-      
+   
        {airlines.map((airline)=>(
         <AirlinesCard key={airline.id} airline={airline}/>
         

@@ -1,7 +1,7 @@
-import React from "react";
-import { Link ,NavLink} from "react-router-dom";
+import React, { useState } from "react";
 import "./Navbar.css"
 function Navbar({ user, setUser }) {
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -9,6 +9,8 @@ function Navbar({ user, setUser }) {
       }
     });
   }
+   
+
 
   return (
     <nav className="nav navbarstyle">
@@ -16,6 +18,8 @@ function Navbar({ user, setUser }) {
   <a className="nav-link nlink" href="/airlines">  Airlines</a>
   <a className="nav-link nlink" href="/myprofile"> My Profile</a>
   <button type="button" className="btn btn-primary logoutbtn"onClick={handleLogoutClick}>Logout</button>
+
+
 </nav>
 
   );

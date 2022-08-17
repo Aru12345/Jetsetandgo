@@ -1,4 +1,3 @@
-
 import {useParams} from "react-router-dom"
 import ReviewCard from "./ReviewCard";
 import { useEffect } from "react";
@@ -16,25 +15,19 @@ const Reviews = ({reviews, setReviews,onUpdateReview,user}) => {
     })
   },[])
 
- 
 
   function handleDelete(reviewtodelete){
    const newReviews=reviews.filter(r=>r.id !== reviewtodelete)
     setReviews(newReviews)
     
- 
   }
 
-
   let filteredReviews = reviews.filter(review => {
-
     if(review.airline?.id) {
       return review.airline.id === parseInt(id);
     }
-
     return null;
   })
-
   
   return (
     <>

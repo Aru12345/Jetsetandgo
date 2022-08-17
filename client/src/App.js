@@ -5,13 +5,9 @@ import Airlines from "./components/Airlines";
 import MyProfile from "./components/MyProfile";
 import Home from "./components/Home";
 import Navbar from "./components/Navigation.js/Navbar";
-import LoginForm from "./components/Authentication/LoginForm";
 import Login from "./pages/Login";
-import SignUp from "./components/Authentication/SignupForm";
 import Reviews from "./components/Reviews";
 import AddreviewForm from "./components/AddreviewForm";
-import MyReviews from "./components/MyReviews";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -19,7 +15,7 @@ function App() {
   const [reviews, setReviews] = useState([]);
   const [myReviewsArray, setMyReviewsArray] = useState([]);
   const[airlines,setAirlines]=useState([]);
-   
+
   useEffect(() => {
     // auto-login
     fetch("/me", { credentials: "same-origin" }).then((r) => {
@@ -39,10 +35,6 @@ function App() {
     setReviews([...reviews, newReview]);
   }
 
-  function addReviewsToState(reviewObj) {
-    setMyReviewsArray([...myReviewsArray, reviewObj]);
-  }
-
   function handleUpdateReview(updatedReview) {
     const updatedReviews = reviews.map((review) =>{
     return review.id === updatedReview.id ? updatedReview : review;
@@ -50,9 +42,6 @@ function App() {
     setReviews(updatedReviews);
   }
  
-  
-
-  
 
   if (!user) return <Login error={'please login'} onLogin={setUser} />;
 
@@ -61,6 +50,7 @@ function App() {
       <Navbar user={user} setUser={setUser} />
       <main>
         <Routes>
+       
           <Route
             exact
             path="/airlines"

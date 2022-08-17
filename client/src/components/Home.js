@@ -1,9 +1,10 @@
-import { useReducer } from "react";
+
 import { useState } from "react";
 import "./Styling.css"
 import Carousel from 'react-bootstrap/Carousel';
 function Home({user}){
-    console.log(user)
+   
+  <input type="search" />
     const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {

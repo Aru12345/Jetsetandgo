@@ -23,20 +23,30 @@ class ReviewsController < ApplicationController
         render json: review,status: :ok
 
     end
-
-   
+  
+  def search
+    a="paris"
+  
+    r= Review.all.select{|review| review.destination.downcase.include? a.downcase }
+    r=Review.all.select{|review| review.description.downcase.include? a.downcase }
+    byebug
+    render json: r,status: :ok
+    
+    
+  end
     
 
     def destroy
    
         review = @current_user.reviews.find(params[:id])
-
         if @current_user
         review.destroy
         else
             render json: {error: "Review of someone else."}, status: :not_found
         end
     end
+
+
 
     private
     

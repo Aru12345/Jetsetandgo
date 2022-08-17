@@ -4,6 +4,13 @@ class AirlinesController < ApplicationController
         render json: airline,status: :ok
 
     end
+
+def search
+a=Airline.where("name LIKE?","%"+PARAMS[:q]+"%")
+render json: a,status: :ok
+
+end
+   
 end
 
 #include: ['users','users.reviews']
